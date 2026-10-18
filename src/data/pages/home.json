@@ -1,14 +1,14 @@
 {
   "meta": {
-    "title": "Muazzam Imtiaz · Lead Software Engineer",
-    "description": "Lead engineer in Japan, building production systems since 2014. Try RepoCMS and LineRichMenu right on the page."
+    "title": "Muazzam Imtiaz · Senior Full-Stack Engineer",
+    "description": "Senior full-stack engineer and solutions architect in Japan, building production systems since 2014. Try RepoCMS and LineRichMenu right on the page."
   },
   "sourceLabel": "JSON",
   "intro": {
     "id": "top",
     "content": {
       "title": "I'm Muazzam. I build software, then I keep it running.",
-      "sub": "Lead engineer in Japan, 12 years in. I scope the problem, design the system, write the code and look after it in production. Most of my work belongs to clients, but the tools I built for myself don't, and you can try all three on this page.",
+      "sub": "Senior full-stack engineer in Japan, 12 years in. I scope the problem, design the system, write the code and look after it in production. Most of my work belongs to clients, but the tools I built for myself don't, and you can try all three on this page.",
       "photo": "/assets/images/home/muazzam.jpg"
     },
     "demo": {
@@ -333,7 +333,7 @@
     "items": [
       {
         "label": "Open to",
-        "value": "Lead engineering roles and select projects"
+        "value": "Senior full-stack and architect roles, and select projects"
       },
       {
         "label": "Overlap",
@@ -345,6 +345,6 @@
   "contact": {
     "id": "contact",
     "title": "Get in touch",
-    "body": "Hiring a lead engineer, or have a system that needs building or fixing? Email me what you're working on, or book a call. No forms."
+    "body": "Hiring a senior full-stack engineer, or have a system that needs building or fixing? Email me what you're working on, or book a call. No forms."
   }
 }
