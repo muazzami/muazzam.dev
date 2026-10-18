@@ -162,7 +162,7 @@
     "items": [
       {
         "title": "Conventions as skills",
-        "desc": "House rules live in version-controlled Claude Code skills: how our Astro sites are structured, a WordPress launch checklist, a site audit, a Figma-to-Bricks playbook, a SaaS starter. Agents follow the same standard on every project, and each project's lessons go back into the skill."
+        "desc": "House rules live in Claude Code skills: how our Astro sites are structured, a WordPress launch checklist, a site audit, a Figma-to-Bricks playbook, a SaaS starter. Agents follow the same standard on every project, and each project's lessons go back into the skill."
       },
       {
         "title": "Real systems over MCP",
