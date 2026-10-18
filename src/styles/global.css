@@ -1,0 +1,148 @@
+/* Tokens ---------------------------------------------------------------- */
+:root {
+  --paper: #f3f5f6;
+  --surface: #ffffff;
+  --ink: #18212b;
+  --muted: #56606c;
+  --rule: #d5dadf;
+  --link: #1747c7;
+  --mark: #ffe25a;
+  --mark-ink: #18212b;
+  --code-bg: #e8ecef;
+  --focus: #1747c7;
+
+  --font: 'Atkinson Hyperlegible Next', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Atkinson Hyperlegible Mono', ui-monospace, Menlo, monospace;
+
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(2.1rem, 5vw, 3.3rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 5rem;
+
+  --container: 66rem;
+  --container-rail: 44rem;
+  --measure: 62ch;
+  --gutter: 1rem;
+
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --dur: 160ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #14191f;
+    --surface: #1b222a;
+    --ink: #e3e8ed;
+    --muted: #9aa5b1;
+    --rule: #2e3842;
+    --link: #8db0ff;
+    --mark: #e8c930;
+    --mark-ink: #14191f;
+    --code-bg: #10151a;
+    --focus: #8db0ff;
+  }
+}
+
+:root[data-theme='dark'] {
+  --paper: #14191f;
+  --surface: #1b222a;
+  --ink: #e3e8ed;
+  --muted: #9aa5b1;
+  --rule: #2e3842;
+  --link: #8db0ff;
+  --mark: #e8c930;
+  --mark-ink: #14191f;
+  --code-bg: #10151a;
+  --focus: #8db0ff;
+}
+
+/* Reset + base ----------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--step-0);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--link); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius-s); }
+
+code, pre, kbd { font-family: var(--font-mono); }
+
+h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; letter-spacing: -0.01em; }
+
+ul { padding: 0; list-style: none; }
+
+::selection { background: var(--mark); color: var(--mark-ink); }
+
+/* Page frame --------------------------------------------------------------- */
+main > section {
+  width: min(100% - 2 * var(--gutter), var(--container));
+  margin-inline: auto;
+  padding-block: var(--space-8) 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -3rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-s);
+  z-index: 100;
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* Shared button ------------------------------------------------------------ */
+.button {
+  font: inherit;
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-s);
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease);
+}
+.button:hover:not(:disabled) { border-color: var(--ink); }
+.button:disabled { opacity: 0.45; cursor: default; }
+.button--primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* Live-edit highlight: the one place the marker colour appears. */
+.is-edited {
+  background: var(--mark);
+  color: var(--mark-ink);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Things that only make sense with JS. */
+html:not(.js) [data-palette-open] { display: none; }

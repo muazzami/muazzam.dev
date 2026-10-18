@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 600" role="img" aria-label="The initials MI">
+  <rect width="450" height="600" fill="#18212b"/>
+  <g fill="none" stroke="#2e3842" stroke-width="2">
+    <path d="M0 150 H450 M0 300 H450 M0 450 H450 M150 0 V600 M300 0 V600"/>
+  </g>
+  <text x="225" y="340" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="150" font-weight="700" fill="#ffe25a">MI</text>
+</svg>

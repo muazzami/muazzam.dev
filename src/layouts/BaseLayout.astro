@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <SeoHead title={title} description={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Atkinson+Hyperlegible+Mono:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+    <script is:inline defer src="https://pulse.rykit.com/script.js" data-website-id="0f27701c-cadd-45cf-8cb4-1c7d5b7758e5" data-domains="muazzam.dev,www.muazzam.dev"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <script is:inline src="/assets/js/site.js" defer></script>
+    <script is:inline src="/assets/js/repo-demo.js" defer></script>
+    <script is:inline src="/assets/js/richmenu.js" defer></script>
+    <script is:inline src="/assets/js/qafied.js" defer></script>
+    <script is:inline src="/assets/js/palette.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+---
+import type { SiteData } from '../data';
+import '../styles/components/header.css';
+
+interface Props { site: SiteData }
+const { site } = Astro.props;
+---
+
+<header class="header">
+  <div class="header__inner">
+    <a class="header__logo" href="#top">{site.logo}</a>
+    <nav class="header__nav" aria-label="Main">
+      <ul class="header__list">
+        {site.nav.map((l) => <li><a class="header__link" href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </nav>
+    <button class="header__search" type="button" data-palette-open aria-haspopup="dialog">
+      <span>{site.paletteLabel}</span>
+      <kbd class="header__kbd" data-kbd>Ctrl K</kbd>
+    </button>
+  </div>
+</header>

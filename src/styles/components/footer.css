@@ -1,0 +1,8 @@
+.footer {
+  width: min(100% - 2 * var(--gutter), var(--container));
+  margin-inline: auto;
+  padding: var(--space-5) 0 var(--space-6);
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: var(--step--1);
+}

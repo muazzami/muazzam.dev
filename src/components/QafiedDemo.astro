@@ -1,0 +1,45 @@
+---
+import type { QafiedDemoText } from '../data';
+import '../styles/components/qafied.css';
+
+interface Props { text: QafiedDemoText }
+const { text } = Astro.props;
+---
+
+<div class="qafied" data-qafied data-start={text.startLabel} data-stop={text.stopLabel} data-empty={text.empty}>
+  <h4 class="qafied__heading">{text.heading}</h4>
+  <p class="qafied__text">{text.body}</p>
+  <div class="qafied__actions">
+    <button class="button button--primary" type="button" data-qf-toggle aria-pressed="false">{text.startLabel}</button>
+    <button class="button" type="button" data-qf-clear disabled>{text.clearLabel}</button>
+  </div>
+  <div class="qafied__output">
+    <p class="qafied__file">{text.outputLabel}</p>
+    <pre class="qafied__code"><code data-qf-output>{text.empty}</code></pre>
+  </div>
+  <p class="qafied__nojs">{text.noJs}</p>
+
+  <div class="qafied__toast" data-qf-toast hidden>
+    <span>{text.hint}</span>
+    <button class="button" type="button" data-qf-stop>{text.stopLabel}</button>
+  </div>
+
+  <template data-qf-form>
+    <form class="qafied__popover" data-qf-popover>
+      <label class="qafied__field">
+        <span>{text.typeLabel}</span>
+        <select class="qafied__input" name="type">
+          {text.types.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      </label>
+      <label class="qafied__field">
+        <span>{text.commentLabel}</span>
+        <textarea class="qafied__input" name="comment" rows="3" placeholder={text.commentPlaceholder} required></textarea>
+      </label>
+      <div class="qafied__popover-actions">
+        <button class="button button--primary" type="submit">{text.saveLabel}</button>
+        <button class="button" type="button" data-qf-cancel>{text.cancelLabel}</button>
+      </div>
+    </form>
+  </template>
+</div>

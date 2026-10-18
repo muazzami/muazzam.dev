@@ -1,0 +1,37 @@
+---
+/**
+ * Section primitive.
+ *
+ * Enforces the project's two-name rule:
+ *   `name`  → the COMPONENT's BEM block class. Shared by every use of the
+ *             component across the site. Styling hangs off this.
+ *   `id`    → a UNIQUE id for this particular placement, used for anchor
+ *             links and page-specific overrides. Comes from the page's JSON.
+ *
+ * A "Text/Image Columns" component therefore renders as:
+ *   <section id="driving-course" class="text-image-columns">
+ * on the About page, and
+ *   <section id="lesson-flow" class="text-image-columns">
+ * on another — same styles, distinct anchors.
+ *
+ * `id` values are supplied by page data (never hard-coded in a component) and
+ * must be unique within a page.
+ */
+interface Props {
+  /** Unique per placement. From the page JSON, e.g. "driving-course". */
+  id: string;
+  /** The component's BEM block, e.g. "text-image-columns". */
+  name: string;
+  /** Optional extra classes — modifiers only, e.g. "text-image-columns--reversed". */
+  class?: string;
+  /** Optional accessible name for the landmark. */
+  label?: string;
+}
+
+const { id, name, class: extra, label } = Astro.props;
+const classList = [name, extra].filter(Boolean).join(' ');
+---
+
+<section id={id} class={classList} aria-label={label}>
+  <slot />
+</section>

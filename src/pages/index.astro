@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Intro from '../components/Intro.astro';
+import Products from '../components/Products.astro';
+import Workflow from '../components/Workflow.astro';
+import ClientWork from '../components/ClientWork.astro';
+import Background from '../components/Background.astro';
+import Reviews from '../components/Reviews.astro';
+import Now from '../components/Now.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import CommandPalette from '../components/CommandPalette.astro';
+import { site, home } from '../data';
+---
+
+<BaseLayout title={home.meta.title} description={home.meta.description}>
+  <Header site={site} />
+  <main id="main">
+    <Intro data={home.intro} />
+    <Products data={home.products} sourceLabel={home.sourceLabel} />
+    <Workflow data={home.workflow} sourceLabel={home.sourceLabel} />
+    <ClientWork data={home.clientWork} sourceLabel={home.sourceLabel} />
+    <Background data={home.background} sourceLabel={home.sourceLabel} />
+    <Reviews data={home.reviews} sourceLabel={home.sourceLabel} />
+    <Now data={home.now} sourceLabel={home.sourceLabel} />
+    <Contact data={home.contact} links={site.contact} />
+  </main>
+  <Footer html={site.footer} />
+  <CommandPalette site={site} products={home.products.items} />
+</BaseLayout>

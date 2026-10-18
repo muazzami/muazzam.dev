@@ -1,0 +1,22 @@
+---
+import Section from './Section.astro';
+import SectionHead from './SectionHead.astro';
+import type { WorkflowData } from '../data';
+import '../styles/components/workflow.css';
+
+interface Props { data: WorkflowData; sourceLabel: string }
+const { data, sourceLabel } = Astro.props;
+---
+
+<Section id={data.id} name="workflow">
+  <SectionHead title={data.title} sourceLabel={sourceLabel} file="src/data/pages/home.json → workflow" data={data.items} />
+  <p class="workflow__intro">{data.intro}</p>
+  <dl class="workflow__list">
+    {data.items.map((item) => (
+      <div class="workflow__item">
+        <dt class="workflow__title">{item.title}</dt>
+        <dd class="workflow__desc">{item.desc}</dd>
+      </div>
+    ))}
+  </dl>
+</Section>

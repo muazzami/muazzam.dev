@@ -1,0 +1,54 @@
+{
+  "name": "Muazzam Imtiaz",
+  "url": "https://muazzam.dev",
+  "indexable": true,
+  "logo": "muazzam.dev",
+  "nav": [
+    {
+      "label": "Built",
+      "href": "#built"
+    },
+    {
+      "label": "How I build",
+      "href": "#how-i-build"
+    },
+    {
+      "label": "Client work",
+      "href": "#client-work"
+    },
+    {
+      "label": "Now",
+      "href": "#now"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
+  ],
+  "paletteLabel": "Search",
+  "palettePlaceholder": "Jump to a section, project or link",
+  "paletteEmpty": "Nothing matches. Try a project name or \"email\".",
+  "themeLabel": "Switch light / dark theme",
+  "contact": [
+    {
+      "label": "Email hi@muazzam.dev",
+      "href": "mailto:hi@muazzam.dev"
+    },
+    {
+      "label": "Book a 20-minute call",
+      "href": "https://www.cal.eu/muazzam/intro",
+      "external": true
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/muazzami",
+      "external": true
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/muazzamimtiaz",
+      "external": true
+    }
+  ],
+  "footer": "Built with Astro, deployed on Cloudflare Pages. Content lives in two JSON files: open any section's <em>JSON</em> toggle to read them."
+}

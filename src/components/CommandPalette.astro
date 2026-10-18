@@ -1,0 +1,24 @@
+---
+import type { SiteData, Product } from '../data';
+import '../styles/components/palette.css';
+
+interface Props { site: SiteData; products: Product[] }
+const { site, products } = Astro.props;
+
+const items = [
+  ...site.nav,
+  ...products.map((p) => ({ label: p.name, href: `#${p.id}`, external: false })),
+  ...site.contact,
+];
+---
+
+<dialog class="palette" data-palette aria-label={site.paletteLabel}>
+  <input class="palette__input" type="search" placeholder={site.palettePlaceholder} aria-label={site.palettePlaceholder} data-palette-input />
+  <ul class="palette__list" data-palette-list>
+    {items.map((l) => (
+      <li><a class="palette__item" href={l.href} rel={l.external ? 'noopener' : undefined}>{l.label}</a></li>
+    ))}
+    <li><button class="palette__item" type="button" data-theme-toggle>{site.themeLabel}</button></li>
+  </ul>
+  <p class="palette__empty" data-palette-empty hidden>{site.paletteEmpty}</p>
+</dialog>

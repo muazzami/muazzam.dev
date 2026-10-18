@@ -1,0 +1,25 @@
+---
+import type { RichMenuDemoText } from '../data';
+import '../styles/components/richmenu.css';
+
+interface Props { text: RichMenuDemoText }
+const { text } = Astro.props;
+---
+
+<div class="richmenu" data-richmenu>
+  <h4 class="richmenu__heading">{text.heading}</h4>
+  <p class="richmenu__text">{text.body}</p>
+  <div class="richmenu__work">
+    <div class="richmenu__stage" data-stage aria-label={text.heading}></div>
+    <div class="richmenu__output">
+      <p class="richmenu__file">{text.outputLabel}</p>
+      <pre class="richmenu__code"><code data-output></code></pre>
+    </div>
+  </div>
+  <div class="richmenu__actions">
+    <button class="button" type="button" data-grid>{text.gridLabel}</button>
+    <button class="button" type="button" data-undo>{text.undoLabel}</button>
+    <button class="button" type="button" data-clear>{text.clearLabel}</button>
+  </div>
+  <p class="richmenu__nojs">{text.noJs}</p>
+</div>

@@ -1,0 +1,18 @@
+---
+import Section from './Section.astro';
+import type { ContactData, Link } from '../data';
+import '../styles/components/contact.css';
+
+interface Props { data: ContactData; links: Link[] }
+const { data, links } = Astro.props;
+---
+
+<Section id={data.id} name="contact">
+  <h2 class="contact__title">{data.title}</h2>
+  <p class="contact__body">{data.body}</p>
+  <ul class="contact__links">
+    {links.map((l) => (
+      <li><a class="contact__link" href={l.href} rel={l.external ? 'noopener' : undefined}>{l.label}</a></li>
+    ))}
+  </ul>
+</Section>

@@ -1,0 +1,57 @@
+.richmenu {
+  margin-top: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-m);
+  padding: var(--space-5);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.richmenu__heading { font-size: var(--step-1); }
+.richmenu__text { color: var(--muted); font-size: var(--step--1); max-width: var(--measure); }
+
+.richmenu__work { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--space-4); }
+
+.richmenu__stage {
+  position: relative;
+  aspect-ratio: 2500 / 1686;
+  border-radius: var(--radius-s);
+  background-color: var(--code-bg);
+  background-image:
+    linear-gradient(var(--rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+  background-size: 10% 14.82%;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+.richmenu__area {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--link) 18%, transparent);
+  border: 2px solid var(--link);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--ink);
+}
+.richmenu__area--draft { border-style: dashed; }
+
+.richmenu__output { display: grid; grid-template-rows: auto minmax(0, 1fr); min-width: 0; contain: size; border: 1px solid var(--rule); border-radius: var(--radius-s); overflow: hidden; }
+.richmenu__file { font-size: var(--step--1); font-family: var(--font-mono); color: var(--muted); padding: var(--space-1) var(--space-3); border-bottom: 1px solid var(--rule); }
+.richmenu__code { background: var(--code-bg); padding: var(--space-3); font-size: 0.72rem; line-height: 1.5; overflow: auto; }
+
+.richmenu__actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+
+.js .richmenu__nojs { display: none; }
+html:not(.js) .richmenu__work,
+html:not(.js) .richmenu__actions { display: none; }
+
+@media (max-width: 760px) {
+  .richmenu__work { grid-template-columns: 1fr; }
+  .richmenu__output { height: 16rem; }
+}

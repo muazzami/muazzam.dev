@@ -1,0 +1,10 @@
+---
+import '../styles/components/footer.css';
+
+interface Props { html: string }
+const { html } = Astro.props;
+---
+
+<footer class="footer">
+  <p class="footer__text" set:html={html} />
+</footer>

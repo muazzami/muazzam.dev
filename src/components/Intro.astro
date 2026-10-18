@@ -1,0 +1,70 @@
+---
+import Section from './Section.astro';
+import type { IntroData } from '../data';
+import '../styles/components/intro.css';
+
+interface Props { data: IntroData }
+const { data } = Astro.props;
+const { content, demo } = data;
+const values: Record<string, string> = { ...content };
+---
+
+<Section id={data.id} name="intro">
+  <div class="intro__head">
+    <div class="intro__text">
+      <h1 class="intro__title"><span data-bind="title">{content.title}</span></h1>
+      <p class="intro__sub"><span data-bind="sub">{content.sub}</span></p>
+    </div>
+    <figure class="intro__figure">
+      <img class="intro__photo" data-bind-src="photo" src={content.photo} alt={data.photoAlt} width={data.photoWidth} height={data.photoHeight} decoding="async" />
+    </figure>
+  </div>
+
+  <div class="repo-demo" data-repo-demo data-note={demo.commitNote} data-upload-path={demo.uploadPath}>
+    <div class="repo-demo__bar">
+      <span class="repo-demo__file">{demo.file}</span>
+      <span class="repo-demo__state" data-state></span>
+    </div>
+    <div class="repo-demo__body">
+      <form class="repo-demo__form" data-form>
+        <h2 class="repo-demo__heading">{demo.heading}</h2>
+        <p class="repo-demo__text" set:html={demo.body} />
+        {demo.fields.map((f) => (
+          f.type === 'media' ? (
+            <fieldset class="repo-demo__field repo-demo__media">
+              <legend class="repo-demo__label">{f.label}</legend>
+              <input type="hidden" data-field={f.key} value={values[f.key]} />
+              <div class="repo-demo__library">
+                {demo.media.map((m) => (
+                  <button class="repo-demo__thumb" type="button" data-media={m.src} aria-pressed={m.src === values[f.key] ? 'true' : 'false'}>
+                    <img src={m.src} alt="" width="45" height="60" loading="lazy" decoding="async" />
+                    <span>{m.label}</span>
+                  </button>
+                ))}
+                <label class="repo-demo__thumb repo-demo__upload">
+                  <input class="repo-demo__file-input" type="file" accept="image/*" data-upload />
+                  <span class="repo-demo__upload-icon" aria-hidden="true">+</span>
+                  <span>{demo.uploadLabel}</span>
+                </label>
+              </div>
+            </fieldset>
+          ) : (
+            <label class="repo-demo__field">
+              <span class="repo-demo__label">{f.label}</span>
+              {f.type === 'textarea'
+                ? <textarea class="repo-demo__input" data-field={f.key} rows="4">{values[f.key]}</textarea>
+                : <input class="repo-demo__input" data-field={f.key} type="text" value={values[f.key]} />}
+            </label>
+          )
+        ))}
+        <div class="repo-demo__actions">
+          <button class="button button--primary" type="submit" data-commit disabled>{demo.commitLabel}</button>
+          <button class="button" type="button" data-reset disabled>{demo.resetLabel}</button>
+        </div>
+        <p class="repo-demo__log" data-log aria-live="polite"></p>
+        <p class="repo-demo__nojs">{demo.noJs}</p>
+      </form>
+      <pre class="repo-demo__json"><code data-json>{JSON.stringify(content, null, 2)}</code></pre>
+    </div>
+  </div>
+</Section>

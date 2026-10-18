@@ -1,0 +1,45 @@
+---
+import Section from './Section.astro';
+import SectionHead from './SectionHead.astro';
+import RichMenuDemo from './RichMenuDemo.astro';
+import QafiedDemo from './QafiedDemo.astro';
+import type { ProductsData } from '../data';
+import '../styles/components/products.css';
+
+interface Props { data: ProductsData; sourceLabel: string }
+const { data, sourceLabel } = Astro.props;
+---
+
+<Section id={data.id} name="products">
+  <SectionHead title={data.title} sourceLabel={sourceLabel} file="src/data/pages/home.json → products" data={data.items} />
+  <p class="products__intro">{data.intro}</p>
+  <div class="products__list">
+    {data.items.map((p) => (
+      <article id={p.id} class="product">
+        <div class="product__head">
+          <h3 class="product__name">{p.name}</h3>
+          <span class="product__status">{p.status}</span>
+        </div>
+        <p class="product__tagline">{p.tagline}</p>
+        {p.draftNote ? (
+          <p class="product__draft">{p.draftNote}</p>
+        ) : (
+          <>
+            <p class="product__desc">{p.desc}</p>
+            <p class="product__stack">{p.stack.join(', ')}</p>
+          </>
+        )}
+        {p.links.length > 0 && (
+          <ul class="product__links">
+            {p.links.map((l) => (
+              <li><a href={l.href} rel={l.external ? 'noopener' : undefined}>{l.label}</a></li>
+            ))}
+          </ul>
+        )}
+        {p.demo === 'repocms' && <a class="product__demo-link" href="#top">{data.repoDemoLink}</a>}
+        {p.demo === 'richmenu' && <RichMenuDemo text={data.richMenu} />}
+        {p.demo === 'qafied' && <QafiedDemo text={data.qafied} />}
+      </article>
+    ))}
+  </div>
+</Section>

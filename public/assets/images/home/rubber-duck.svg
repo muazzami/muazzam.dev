@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 600" role="img" aria-label="A rubber duck">
+  <rect width="450" height="600" fill="#cfe3f0"/>
+  <path d="M0 470 Q112 440 225 470 T450 470 V600 H0 Z" fill="#9cc6e0"/>
+  <ellipse cx="235" cy="410" rx="150" ry="95" fill="#ffd23f"/>
+  <circle cx="200" cy="270" r="90" fill="#ffd23f"/>
+  <path d="M285 265 Q345 262 350 285 Q330 305 282 297 Z" fill="#f28c28"/>
+  <circle cx="225" cy="245" r="13" fill="#18212b"/>
+  <circle cx="230" cy="240" r="4" fill="#fff"/>
+  <path d="M150 400 Q215 360 270 410 Q215 430 150 400 Z" fill="#f2bd1d"/>
+</svg>

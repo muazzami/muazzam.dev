@@ -1,0 +1,39 @@
+---
+import { execSync } from 'node:child_process';
+import Section from './Section.astro';
+import SectionHead from './SectionHead.astro';
+import type { NowData } from '../data';
+import '../styles/components/now.css';
+
+interface Props { data: NowData; sourceLabel: string }
+const { data, sourceLabel } = Astro.props;
+
+const builtOn = new Date().toISOString().slice(0, 10);
+let commit = '';
+try {
+  commit = execSync('git rev-parse --short HEAD', { stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+} catch {
+  commit = '';
+}
+const build = commit ? `${builtOn}, commit ${commit}` : builtOn;
+---
+
+<Section id={data.id} name="now">
+  <SectionHead title={data.title} sourceLabel={sourceLabel} file="src/data/pages/home.json → now" data={data} />
+  <dl class="now__list">
+    <div class="now__row">
+      <dt>{data.timeLabel}</dt>
+      <dd data-clock>{data.timeFallback}</dd>
+    </div>
+    {data.items.map((row) => (
+      <div class="now__row">
+        <dt>{row.label}</dt>
+        <dd>{row.value}</dd>
+      </div>
+    ))}
+    <div class="now__row">
+      <dt>{data.builtLabel}</dt>
+      <dd class="now__mono">{build}</dd>
+    </div>
+  </dl>
+</Section>

@@ -1,0 +1,20 @@
+---
+import Section from './Section.astro';
+import SectionHead from './SectionHead.astro';
+import type { ReviewsData } from '../data';
+import '../styles/components/reviews.css';
+
+interface Props { data: ReviewsData; sourceLabel: string }
+const { data, sourceLabel } = Astro.props;
+---
+
+<Section id={data.id} name="reviews">
+  <SectionHead title={data.title} sourceLabel={sourceLabel} file="src/data/pages/home.json → reviews" data={data.items} />
+  {data.items.map((r) => (
+    <figure class="reviews__item">
+      <blockquote class="reviews__quote"><p>{r.text}</p></blockquote>
+      <figcaption class="reviews__author">{r.author}</figcaption>
+    </figure>
+  ))}
+  <p class="reviews__summary" set:html={data.summary} />
+</Section>

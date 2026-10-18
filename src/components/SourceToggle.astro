@@ -1,0 +1,19 @@
+---
+import '../styles/components/source-toggle.css';
+
+interface Props {
+  label: string;
+  file: string;
+  data: unknown;
+}
+
+const { label, file, data } = Astro.props;
+---
+
+<details class="source-toggle">
+  <summary class="source-toggle__summary">{label}</summary>
+  <div class="source-toggle__panel">
+    <p class="source-toggle__file">{file}</p>
+    <pre class="source-toggle__code"><code>{JSON.stringify(data, null, 2)}</code></pre>
+  </div>
+</details>

@@ -1,0 +1,18 @@
+---
+import SourceToggle from './SourceToggle.astro';
+import '../styles/components/section-head.css';
+
+interface Props {
+  title: string;
+  sourceLabel: string;
+  file: string;
+  data: unknown;
+}
+
+const { title, sourceLabel, file, data } = Astro.props;
+---
+
+<div class="section-head">
+  <h2 class="section-head__title">{title}</h2>
+  <SourceToggle label={sourceLabel} file={file} data={data} />
+</div>

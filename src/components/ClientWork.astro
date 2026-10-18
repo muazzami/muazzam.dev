@@ -1,0 +1,31 @@
+---
+import Section from './Section.astro';
+import SectionHead from './SectionHead.astro';
+import type { ClientWorkData } from '../data';
+import '../styles/components/client-work.css';
+
+interface Props { data: ClientWorkData; sourceLabel: string }
+const { data, sourceLabel } = Astro.props;
+---
+
+<Section id={data.id} name="client-work">
+  <SectionHead title={data.title} sourceLabel={sourceLabel} file="src/data/pages/home.json → clientWork" data={data.items} />
+  <p class="client-work__intro">{data.intro}</p>
+  <ul class="client-work__list">
+    {data.items.map((item) => (
+      <li>
+        <details class="client-work__item">
+          <summary class="client-work__summary">
+            <span class="client-work__title">{item.title}</span>
+            <span class="client-work__kind">{item.kind}</span>
+          </summary>
+          <div class="client-work__detail">
+            <p>{item.desc}</p>
+            <p class="client-work__stack">{item.stack.join(', ')}</p>
+          </div>
+        </details>
+      </li>
+    ))}
+  </ul>
+  <p class="client-work__footer" set:html={data.footer} />
+</Section>

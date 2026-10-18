@@ -1,0 +1,23 @@
+---
+import Section from './Section.astro';
+import SectionHead from './SectionHead.astro';
+import type { BackgroundData } from '../data';
+import '../styles/components/background.css';
+
+interface Props { data: BackgroundData; sourceLabel: string }
+const { data, sourceLabel } = Astro.props;
+---
+
+<Section id={data.id} name="background">
+  <SectionHead title={data.title} sourceLabel={sourceLabel} file="src/data/pages/home.json → background" data={data} />
+  {data.paragraphs.map((p) => <p class="background__text" set:html={p} />)}
+  <h3 class="background__subhead">{data.stackLabel}</h3>
+  <dl class="background__stack">
+    {data.stack.map((row) => (
+      <div class="background__row">
+        <dt>{row.area}</dt>
+        <dd>{row.tools}</dd>
+      </div>
+    ))}
+  </dl>
+</Section>

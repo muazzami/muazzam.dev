@@ -1,0 +1,350 @@
+{
+  "meta": {
+    "title": "Muazzam Imtiaz · Lead Software Engineer",
+    "description": "Lead engineer in Japan, building production systems since 2014. Try RepoCMS and LineRichMenu right on the page."
+  },
+  "sourceLabel": "JSON",
+  "intro": {
+    "id": "top",
+    "content": {
+      "title": "I'm Muazzam. I build software, then I keep it running.",
+      "sub": "Lead engineer in Japan, 12 years in. I scope the problem, design the system, write the code and look after it in production. Most of my work belongs to clients, but the tools I built for myself don't, and you can try all three on this page.",
+      "photo": "/assets/images/home/muazzam.jpg"
+    },
+    "demo": {
+      "file": "src/data/pages/home.json → intro.content",
+      "heading": "Edit this page",
+      "body": "Everything above, photo included, comes from a JSON file. Change it here and watch the page update. That's what <a href=\"#repocms\">RepoCMS</a> does for real sites: it turns a repo's content files into forms, handles the media folder, commits your edit to GitHub, and Cloudflare rebuilds the site.",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "sub",
+          "label": "Intro",
+          "type": "textarea"
+        },
+        {
+          "key": "photo",
+          "label": "Photo",
+          "type": "media"
+        }
+      ],
+      "commitLabel": "Commit change",
+      "resetLabel": "Reset",
+      "commitNote": "Demo only, nothing was saved and uploads never leave your browser. In RepoCMS this commit lands on GitHub and triggers a rebuild.",
+      "noJs": "Turn on JavaScript to edit this live.",
+      "media": [
+        {
+          "src": "/assets/images/home/muazzam.jpg",
+          "label": "Me"
+        },
+        {
+          "src": "/assets/images/home/rubber-duck.svg",
+          "label": "Rubber duck"
+        },
+        {
+          "src": "/assets/images/home/initials.svg",
+          "label": "Initials"
+        }
+      ],
+      "uploadLabel": "Upload your own",
+      "uploadPath": "/assets/images/home/"
+    },
+    "photoAlt": "Muazzam Imtiaz",
+    "photoWidth": 450,
+    "photoHeight": 600
+  },
+  "products": {
+    "id": "built",
+    "title": "Things I've built",
+    "intro": "My own products, as opposed to client work. Each one has a working demo on this page.",
+    "repoDemoLink": "Try the demo at the top of the page",
+    "richMenu": {
+      "heading": "Draw a rich menu",
+      "body": "Drag across the menu to add a tap area. The JSON on the right is what LINE's Messaging API expects, in real 2500 × 1686 pixel coordinates.",
+      "gridLabel": "Start from a 3 × 2 grid",
+      "undoLabel": "Undo",
+      "clearLabel": "Clear",
+      "outputLabel": "richmenu.json",
+      "noJs": "Turn on JavaScript to draw tap areas."
+    },
+    "items": [
+      {
+        "id": "repocms",
+        "name": "RepoCMS",
+        "tagline": "Edit a static site's content without touching code.",
+        "status": "In daily use",
+        "desc": "Static sites are fast, but every text change still needed a developer. RepoCMS connects to a GitHub repository, turns each JSON content file into a form, manages the media folder, and commits changes that trigger a Cloudflare build. An agency now edits all of its client sites with it.",
+        "stack": [
+          "FastAPI",
+          "MongoDB",
+          "React 19",
+          "Vite",
+          "shadcn/ui",
+          "Docker"
+        ],
+        "links": [],
+        "demo": "repocms"
+      },
+      {
+        "id": "linerichmenu",
+        "name": "LineRichMenu",
+        "tagline": "Design and switch LINE rich menus across organisations.",
+        "status": "In use",
+        "desc": "Managing LINE rich menus means hand-writing pixel coordinates and juggling channel tokens. LineRichMenu handles token-based onboarding for each organisation, gives you a visual editor for tap areas, and switches menus across organisations with real-time data.",
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "Supabase",
+          "shadcn/ui"
+        ],
+        "links": [],
+        "demo": "richmenu"
+      },
+      {
+        "id": "qafied",
+        "name": "Qafied",
+        "tagline": "Visual feedback, pinned to the actual page.",
+        "status": "Live",
+        "desc": "Client feedback by email means screenshots with arrows and \"the button on the left\". Qafied is one script tag on any site: people click where the problem is and leave a pinned comment. Each comment captures a screenshot, browser, OS, viewport and exact coordinates, then lands in a dashboard inbox with a status workflow.",
+        "stack": [
+          "FastAPI",
+          "MongoDB",
+          "React",
+          "Tailwind",
+          "shadcn/ui",
+          "Vanilla JS widget",
+          "Docker"
+        ],
+        "links": [
+          {
+            "label": "qafied.link",
+            "href": "https://qafied.link/",
+            "external": true
+          }
+        ],
+        "demo": "qafied"
+      }
+    ],
+    "qafied": {
+      "heading": "Leave feedback on this page",
+      "body": "This is a local copy of the Qafied widget. Turn on feedback mode, click anywhere on the page, and pin a comment. On a real site the comment lands in a dashboard inbox with a screenshot; here you just see what would be sent.",
+      "startLabel": "Turn on feedback mode",
+      "stopLabel": "Turn off feedback mode",
+      "hint": "Click anywhere to pin a comment. Press Esc to stop.",
+      "typeLabel": "Type",
+      "types": [
+        "change",
+        "remove",
+        "replace",
+        "add",
+        "bug",
+        "question",
+        "praise"
+      ],
+      "commentLabel": "Comment",
+      "commentPlaceholder": "What should change here?",
+      "saveLabel": "Pin comment",
+      "cancelLabel": "Cancel",
+      "outputLabel": "comment payload",
+      "empty": "No pins yet. Turn on feedback mode and click somewhere.",
+      "clearLabel": "Remove pins",
+      "noJs": "Turn on JavaScript to pin comments."
+    }
+  },
+  "workflow": {
+    "id": "how-i-build",
+    "title": "How I build",
+    "intro": "Most of my code is now written with agents. The part that matters is the system around them: the conventions they follow, the systems they can reach, and the review they go through.",
+    "items": [
+      {
+        "title": "Conventions as skills",
+        "desc": "House rules live in version-controlled Claude Code skills: how our Astro sites are structured, a WordPress launch checklist, a site audit, a Figma-to-Bricks playbook, a SaaS starter. Agents follow the same standard on every project, and each project's lessons go back into the skill."
+      },
+      {
+        "title": "Real systems over MCP",
+        "desc": "WordPress installs and business tools are connected over MCP, so an agent can inspect a live site, plan a change or draft a handover against real data, behind permission prompts rather than copy-pasted context."
+      },
+      {
+        "title": "Parallel work, one decision",
+        "desc": "Research and audits fan out to sub-agents, one per site, server or source, and only their conclusions come back. I make the call and write down the trade-offs."
+      },
+      {
+        "title": "Review stays human",
+        "desc": "Agents scaffold, refactor and explore alternatives. I read every diff, and anything that touches production, payments or client data goes through me."
+      }
+    ]
+  },
+  "clientWork": {
+    "id": "client-work",
+    "title": "Client work",
+    "intro": "This work belongs to clients and agencies, so there are no names. What's left is the problem, what I decided, and the stack.",
+    "items": [
+      {
+        "title": "Performance and traffic firefighting",
+        "kind": "Performance",
+        "desc": "A bilingual WooCommerce store with 42 plugins took 4.6–6.6s to render uncached. Profiling put the cost in PHP rendering, not the database (0.07s). Removing session locking made pages cacheable by the CDN again: cached shop pages now return in ~30ms, a blocking admin check went from 2.57s to 0.003s, and home page HTML shrank 28%. On the same estate, one crawler was generating 84% of traffic (up to 155k requests a day) through faceted filter URLs, each an ~11s cache miss. Contained it in layers: robots.txt, a Cloudflare WAF rule, and a server-level block.",
+        "stack": [
+          "WooCommerce",
+          "PHP profiling",
+          "Cloudflare WAF",
+          "LiteSpeed",
+          "Redis"
+        ]
+      },
+      {
+        "title": "Lead ingestion and spam filtering platform",
+        "kind": "SaaS",
+        "desc": "An agency was losing hours to spam and to a different SMTP setup on every client site. I designed and built a multi-tenant platform: per-client endpoints and email settings, submissions scored and filtered, suspect leads held for review, clean leads forwarded automatically.",
+        "stack": [
+          "FastAPI",
+          "MongoDB",
+          "React",
+          "Tailwind",
+          "Docker"
+        ]
+      },
+      {
+        "title": "Static site framework for an agency",
+        "kind": "Architecture",
+        "desc": "The agency's WordPress sites were slow and costly to maintain. I proposed and built the replacement: Astro sites with all content in JSON, pages composed from reusable components, deployed on Cloudflare. This site is built the same way.",
+        "stack": [
+          "Astro",
+          "JSON content",
+          "Cloudflare Pages"
+        ]
+      },
+      {
+        "title": "Operations system inside WordPress",
+        "kind": "Internal tool",
+        "desc": "A client wanted an internal system but needed staff to keep the WordPress admin they knew. I kept orders, line items, logs and notifications in dedicated tables instead of posts, and built React dashboards for staff and customers on top of the REST API.",
+        "stack": [
+          "WordPress",
+          "Custom tables",
+          "REST API",
+          "React",
+          "PHP"
+        ]
+      },
+      {
+        "title": "Hosting estate consolidation",
+        "kind": "Infrastructure",
+        "desc": "Audited a multi-provider estate of 16 servers and 100+ DNS zones. Designed an ARM-based consolidation, set up automated backups to object storage and storage boxes, and cleared out stale DNS records and 150+ GB of duplicate data.",
+        "stack": [
+          "Linux",
+          "Docker",
+          "Cloudflare",
+          "S3 storage"
+        ]
+      },
+      {
+        "title": "Production security remediation",
+        "kind": "Incident response",
+        "desc": "Patched a CVSS 10.0 Next.js remote code execution flaw (GHSA-9qr9-h5gf-34mp) across three production containers, and stabilised a compromised WooCommerce store: bot traffic, contaminated serialised data and caching faults.",
+        "stack": [
+          "Security",
+          "Docker",
+          "Oracle Cloud",
+          "WooCommerce"
+        ]
+      },
+      {
+        "title": "Shopify builds and integrations",
+        "kind": "E-commerce",
+        "desc": "Store builds and rebuilds with custom Liquid themes, third-party systems connected through the Shopify REST and GraphQL APIs, custom pixel events, and UX changes aimed at conversion. Led a major theme upgrade (Broadcast v4 to v8) with custom code kept in isolated snippets so future updates stay safe, and fixed a live search page freeze caused by legacy theme JavaScript.",
+        "stack": [
+          "Shopify",
+          "Liquid",
+          "GraphQL",
+          "GA4"
+        ]
+      },
+      {
+        "title": "Healthcare web platforms",
+        "kind": "Healthcare",
+        "desc": "A multi-step application portal for a medical facility with conditional form logic, custom roles and admin workflows, and a headless Next.js site for a health brand with WordPress as the editorial backend.",
+        "stack": [
+          "WordPress",
+          "Next.js",
+          "Headless CMS"
+        ]
+      }
+    ],
+    "footer": "A small sample of <strong>200+ projects</strong> across PeoplePerHour, direct clients and 8 years of agency work."
+  },
+  "background": {
+    "id": "background",
+    "title": "Background",
+    "paragraphs": [
+      "8+ years at a Tokyo digital agency, from developer to lead developer to Solutions Architect, running several accounts at once across e-commerce, healthcare and media. Since 2014, an independent practice alongside it, building SaaS products, internal tools and the servers they run on.",
+      "I work best when there's a real problem nobody has shaped yet. I'll ask the awkward questions early, write down the trade-offs before any code, and stay with the system after launch."
+    ],
+    "stackLabel": "What I reach for",
+    "stack": [
+      {
+        "area": "Backend",
+        "tools": "Python, FastAPI, PHP, Laravel, Node.js"
+      },
+      {
+        "area": "Frontend",
+        "tools": "TypeScript, React, Next.js, Astro, Tailwind"
+      },
+      {
+        "area": "Data",
+        "tools": "PostgreSQL, MongoDB, Redis, Supabase"
+      },
+      {
+        "area": "Commerce & CMS",
+        "tools": "Shopify, WordPress, WooCommerce"
+      },
+      {
+        "area": "Infrastructure",
+        "tools": "Docker, Linux, Cloudflare, AWS, Hetzner"
+      }
+    ]
+  },
+  "reviews": {
+    "id": "reviews",
+    "title": "What clients say",
+    "items": [
+      {
+        "text": "Yet again, Muazzam was simply excellent to deal with. His knowledge and experience is simply invaluable. I cannot recommend him highly enough.",
+        "author": "Kiaran B., Erskine, on PeoplePerHour"
+      },
+      {
+        "text": "Muazzam is proactive and organised. He can handle many balls in the air. He made me believe that we can reorganise our work, and finally we are on track.",
+        "author": "LinkedIn recommendation, agricultural portal"
+      },
+      {
+        "text": "Knowledgeable, helpful, fair, honest individual. Will continue to work with you when it comes to web development.",
+        "author": "Andrew G., Potters Bar, on PeoplePerHour"
+      }
+    ],
+    "summary": "222 reviews averaging 4.9 out of 5 on <a href=\"https://www.peopleperhour.com/freelancer/technology-programming/muazzam-imtiaz-full-stack-web-dev-wordpress-zmvvzy\" rel=\"noopener\">PeoplePerHour</a>."
+  },
+  "now": {
+    "id": "now",
+    "title": "Now",
+    "timeLabel": "My time",
+    "timeFallback": "Japan, UTC+9",
+    "items": [
+      {
+        "label": "Open to",
+        "value": "Lead engineering roles and select projects"
+      },
+      {
+        "label": "Overlap",
+        "value": "EU mornings, US East evenings"
+      }
+    ],
+    "builtLabel": "This build"
+  },
+  "contact": {
+    "id": "contact",
+    "title": "Get in touch",
+    "body": "Hiring a lead engineer, or have a system that needs building or fixing? Email me what you're working on, or book a call. No forms."
+  }
+}
