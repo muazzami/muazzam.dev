@@ -196,6 +196,19 @@
         ]
       },
       {
+        "title": "Multi-tenant B2B commerce platform",
+        "kind": "SaaS",
+        "desc": "Wholesale buyers need more than a normal web shop. I built a multi-tenant platform where one deployment serves many stores, each on its own subdomain. It has quotes and request for quote, price lists per customer group, credit terms and invoicing, roles and permissions, and an audit log of every change. It is API first with a typed SDK, so a store can build its own storefront. Every store also has an MCP endpoint with scoped keys, so AI agents can work with the store's data safely.",
+        "stack": [
+          "FastAPI",
+          "PostgreSQL",
+          "Redis",
+          "React",
+          "Docker",
+          "MCP"
+        ]
+      },
+      {
         "title": "Performance and traffic firefighting",
         "kind": "Performance",
         "desc": "A bilingual WooCommerce store with 42 plugins took 4.6–6.6s to render uncached. Profiling put the cost in PHP rendering, not the database (0.07s). Removing session locking made pages cacheable by the CDN again: cached shop pages now return in ~30ms, a blocking admin check went from 2.57s to 0.003s, and home page HTML shrank 28%. On the same estate, one crawler was generating 84% of traffic (up to 155k requests a day) through faceted filter URLs, each an ~11s cache miss. Contained it in layers: robots.txt, a Cloudflare WAF rule, and a server-level block.",
