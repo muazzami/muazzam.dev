@@ -131,7 +131,7 @@
     ],
     "qafied": {
       "heading": "Leave feedback on this page",
-      "body": "This is a local copy of the Qafied widget. Turn on feedback mode, click anywhere on the page, and pin a comment. On a real site the comment lands in a dashboard inbox with a screenshot; here you just see what would be sent.",
+      "body": "This is a local copy of the Qafied widget. Turn on feedback mode, click anywhere on the page, and pin a comment. On a real site the comment lands in a dashboard inbox with a screenshot. Here you only see what would be sent.",
       "startLabel": "Turn on feedback mode",
       "stopLabel": "Turn off feedback mode",
       "hint": "Click anywhere to pin a comment. Press Esc to stop.",
@@ -186,7 +186,7 @@
       {
         "title": "Leasing operations platform",
         "kind": "Application",
-        "desc": "A furniture and appliance leasing business ran its orders through spreadsheets and email. I designed and built the replacement: staff quote orders against suppliers, issue estimates and track each order to delivery; customers browse a catalogue, build an order and approve the estimate. WordPress handles only login, the REST API and the back office. The server owns every rule, and each role gets its own React app, so cost and margin data never reaches a customer's browser. 28 domain modules, an order status machine, PDF estimates, and 43 test suites that run against the sandbox on every deploy.",
+        "desc": "A furniture and appliance leasing business was running all its orders on spreadsheets and email. I designed and built the system to replace it. Staff get quotes from suppliers, send estimates and follow each order until delivery. Customers browse the catalogue, build their order and approve the estimate. WordPress is only used for login, the REST API and the back office. All the business rules are on the server, and staff and customers have separate React apps, so cost and margin data never goes to a customer's browser. It has 28 domain modules, an order status flow, PDF estimates, and 43 test suites that run on every deploy.",
         "stack": [
           "PHP",
           "REST API",
