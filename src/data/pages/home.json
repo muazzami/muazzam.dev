@@ -184,6 +184,18 @@
     "intro": "This work belongs to clients and agencies, so there are no names. What's left is the problem, what I decided, and the stack.",
     "items": [
       {
+        "title": "Leasing operations platform",
+        "kind": "Application",
+        "desc": "A furniture and appliance leasing business ran its orders through spreadsheets and email. I designed and built the replacement: staff quote orders against suppliers, issue estimates and track each order to delivery; customers browse a catalogue, build an order and approve the estimate. WordPress handles only login, the REST API and the back office. The server owns every rule, and each role gets its own React app, so cost and margin data never reaches a customer's browser. 28 domain modules, an order status machine, PDF estimates, and 43 test suites that run against the sandbox on every deploy.",
+        "stack": [
+          "PHP",
+          "REST API",
+          "React",
+          "WordPress (auth + API only)",
+          "JetEngine"
+        ]
+      },
+      {
         "title": "Performance and traffic firefighting",
         "kind": "Performance",
         "desc": "A bilingual WooCommerce store with 42 plugins took 4.6–6.6s to render uncached. Profiling put the cost in PHP rendering, not the database (0.07s). Removing session locking made pages cacheable by the CDN again: cached shop pages now return in ~30ms, a blocking admin check went from 2.57s to 0.003s, and home page HTML shrank 28%. On the same estate, one crawler was generating 84% of traffic (up to 155k requests a day) through faceted filter URLs, each an ~11s cache miss. Contained it in layers: robots.txt, a Cloudflare WAF rule, and a server-level block.",
